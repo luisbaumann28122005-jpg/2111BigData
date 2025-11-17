@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Amada 💖 | Luis & Mariana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffd6e7 0%, #ffe6f0 50%, #fff0f5 100%);
+            color: #5a3d5c;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(to right, #ffb3c6, #ff8fab);
+            padding: 30px 0;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+
+        /* Carrossel de fotos */
+        .carousel-container {
+            position: relative;
+            width: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 8px solid #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            background-color: #fff;
+        }
+
+        .carousel-container:hover {
+            transform: scale(1.02);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .carousel-item img {
+            max-width: 100%;
+            max-height: 380px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        /* Indicadores do carrossel */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .indicator.active {
+            background-color: #fff;
+        }
+
+        /* Nomes abaixo das fotos */
+        .names {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .names span {
+            padding: 5px 15px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Mensagem principal */
+        .message-container {
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .message {
+            font-size: 1.8rem;
+            color: #800040;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding: 20px;
+        }
+
+        .message::before, .message::after {
+            content: '"';
+            font-size: 3rem;
+            color: #ff8fab;
+            position: absolute;
+            opacity: 0.7;
+        }
+
+        .message::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .message::after {
+            bottom: -30px;
+            right: 0;
+        }
+
+        /* Timer */
+        .timer-container {
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .timer {
+            font-size: 1.4rem;
+            background: linear-gradient(to right, #ffb3c6, #ff8fab);
+            padding: 20px 30px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 20px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+
+        .timer span {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+
+        /* Mensagem personalizada */
+        .personal-message-container {
+            margin: 30px auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .personal-message {
+            background: linear-gradient(135deg, #fff, #ffe6f0);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ff8fab;
+            text-align: left;
+        }
+
+        .personal-message h2 {
+            color: #800040;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .personal-message p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #5a3d5c;
+            margin-bottom: 15px;
+        }
+
+        .personal-message .signature {
+            text-align: right;
+            font-style: italic;
+            color: #ff8fab;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Corações flutuantes */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 105, 180, 0.5);
+            animation: float 8s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Botão de música */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff8fab;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            background: #ff6b9d;
+        }
+
+        /* Seção de momentos especiais */
+        .moments-section {
+            margin: 40px auto;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .moments-title {
+            font-size: 2rem;
+            color: #800040;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .moments-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #ffb3c6, #ff8fab);
+        }
+
+        .moments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .moment-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .moment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .moment-image-container {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 10px;
+        }
+
+        .moment-image {
+            max-width: 100%;
+            max-height: 180px;
+            object-fit: contain;
+        }
+
+        .moment-content {
+            padding: 20px;
+        }
+
+        .moment-title {
+            font-size: 1.3rem;
+            color: #800040;
+            margin-bottom: 10px;
+        }
+
+        .moment-description {
+            color: #5a3d5c;
+            line-height: 1.5;
+        }
+
+        /* Carrossel para momentos com múltiplas fotos */
+        .moment-carousel {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            background-color: #f9f9f9;
+        }
+
+        .moment-carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .moment-carousel-item {
+            min-width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .moment-carousel-item img {
+            max-width: 100%;
+            max-height: 180px;
+            object-fit: contain;
+        }
+
+        .moment-carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .moment-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .moment-indicator.active {
+            background-color: #ff8fab;
+        }
+
+        /* Modal para momentos especiais */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #800040;
+            z-index: 10;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: #800040;
+            margin-bottom: 15px;
+        }
+
+        .modal-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #5a3d5c;
+        }
+
+        /* Carrossel no modal */
+        .modal-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .modal-carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .modal-carousel-item {
+            min-width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-carousel-item img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .modal-carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 5px;
+        }
+
+        .modal-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal-indicator.active {
+            background-color: #ff8fab;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #800040;
+            z-index: 5;
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        /* Botão de amor secreto */
+        .love-button {
+            background: linear-gradient(to right, #ff8fab, #ff6b9d);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .love-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .carousel-container {
+                width: 350px;
+            }
+            
+            .carousel-item img {
+                max-height: 330px;
+            }
+            
+            .message {
+                font-size: 1.5rem;
+            }
+            
+            .timer {
+                font-size: 1.1rem;
+                padding: 15px 20px;
+            }
+            
+            .personal-message {
+                padding: 20px;
+            }
+            
+            .personal-message h2 {
+                font-size: 1.3rem;
+            }
+            
+            .personal-message p {
+                font-size: 1.1rem;
+            }
+            
+            .moments-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.5rem;
+            }
+            
+            .modal-description {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .carousel-container {
+                width: 300px;
+            }
+            
+            .carousel-item img {
+                max-height: 280px;
+            }
+            
+            .names {
+                font-size: 1.2rem;
+            }
+            
+            .message {
+                font-size: 1.3rem;
+            }
+            
+            .timer {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+            
+            .personal-message {
+                padding: 15px;
+            }
+            
+            .personal-message h2 {
+                font-size: 1.2rem;
+            }
+            
+            .personal-message p {
+                font-size: 1rem;
+            }
+            
+            .modal-content {
+                padding: 15px;
+            }
+            
+            .modal-title {
+                font-size: 1.3rem;
+            }
+            
+            .modal-description {
+                font-size: 1rem;
+            }
+            
+            .carousel-nav {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Corações flutuantes -->
+    <div class="hearts" id="hearts"></div>
+
+    <header>
+        <h1>Para Minha Amada 💖</h1>
+
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-item"><img src="Fotos/foto1.jpeg" alt="Nossa foto 1"></div>
+                <div class="carousel-item"><img src="Fotos/foto2.jpeg" alt="Nossa foto 2"></div>
+                <div class="carousel-item"><img src="Fotos/foto3.jpeg" alt="Nossa foto 3"></div>
+                <div class="carousel-item"><img src="Fotos/foto4.jpeg" alt="Nossa foto 4"></div>
+            </div>
+        </div>
+        
+        <div class="carousel-indicators" id="indicators">
+            <!-- Os indicadores serão criados via JavaScript -->
+        </div>
+
+        <div class="names">
+            <span>Luis</span>
+            <span>❤️</span>
+            <span>Mariana</span>
+        </div>
+    </header>
+
+    <div class="message-container">
+        <p class="message">Cada momento ao seu lado é um presente que guardo no coração. Você é a melhor coisa que já aconteceu na minha vida! ❤️</p>
+    </div>
+
+    <div class="timer-container">
+        <div class="timer" id="timer">
+            <span id="days">0</span> dias 
+            <span id="hours">0</span> horas 
+            <span id="minutes">0</span> minutos 
+            <span id="seconds">0</span> segundos
+        </div>
+    </div>
+
+    <!-- Seção de momentos especiais -->
+    <div class="moments-section">
+        <h2 class="moments-title">Nossos Momentos Especiais</h2>
+        <div class="moments-grid" id="momentsGrid">
+            <!-- Os momentos serão adicionados via JavaScript -->
+        </div>
+    </div>
+
+    <!-- Mensagem personalizada -->
+    <div class="personal-message-container">
+        <div class="personal-message">
+            <h2>Para Minha Princesa 👑</h2>
+            <p>Meu amor, cada dia ao seu lado é uma bênção que agradeço aos céus. Você ilumina meus dias com seu sorriso e aquece meu coração com seu amor.</p>
+            <p>Lembro de cada momento especial que vivemos, desde nossos primeiros encontros até hoje. Cada risada, cada abraço, cada beijo... tudo está guardado no meu coração.</p>
+            <p>Você é minha melhor amiga, minha confidente, minha paixão e meu grande amor. Não consigo imaginar minha vida sem você.</p>
+            <p class="signature">Com todo meu amor,<br>Seu Luis ❤️</p>
+        </div>
+    </div>
+
+    <!-- Botão de amor secreto -->
+    <button class="love-button" id="loveButton">Clique para uma surpresa especial 💝</button>
+
+    <!-- Modal para momentos especiais -->
+    <div class="modal" id="momentModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="modal-carousel" id="modalCarousel">
+                <div class="modal-carousel-track" id="modalCarouselTrack">
+                    <!-- Imagens serão adicionadas via JavaScript -->
+                </div>
+                <button class="carousel-nav carousel-prev" id="modalPrev">&#10094;</button>
+                <button class="carousel-nav carousel-next" id="modalNext">&#10095;</button>
+            </div>
+            <div class="modal-carousel-indicators" id="modalIndicators">
+                <!-- Indicadores serão adicionados via JavaScript -->
+            </div>
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <p class="modal-description" id="modalDescription"></p>
+        </div>
+    </div>
+
+    <!-- Controle de música -->
+    <div class="music-control" id="musicControl">
+        <span id="musicIcon">♫</span>
+    </div>
+
+    <!-- Música de fundo -->
+    <audio id="music" src="musica.mp3" loop></audio>
+
+    <script>
+        // Criar corações flutuantes
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const heartCount = 15;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Relógio do tempo juntos
+        const startDate = new Date("2023-11-21T00:00:00"); // Coloque aqui a data correta
+
+        function updateTimer() {
+            const now = new Date();
+            let diff = Math.floor((now - startDate) / 1000);
+
+            const days = Math.floor(diff / (3600*24));
+            diff -= days * 3600 * 24;
+            const hours = Math.floor(diff / 3600);
+            diff -= hours * 3600;
+            const minutes = Math.floor(diff / 60);
+            const seconds = diff - minutes * 60;
+
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('minutes').innerText = minutes;
+            document.getElementById('seconds').innerText = seconds;
+        }
+
+        // Carrossel automático
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        let currentIndex = 0;
+
+        // Criar indicadores
+        function createIndicators() {
+            const indicatorsContainer = document.getElementById('indicators');
+            
+            for (let i = 0; i < slides.length; i++) {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (i === 0) indicator.classList.add('active');
+                
+                indicator.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                });
+                
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Atualizar indicadores
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        function moveCarousel() {
+            currentIndex++;
+            if (currentIndex >= slides.length) currentIndex = 0;
+            updateCarousel();
+        }
+
+        // Controle de música
+        function setupMusicControl() {
+            const music = document.getElementById('music');
+            const musicControl = document.getElementById('musicControl');
+            const musicIcon = document.getElementById('musicIcon');
+            
+            // Iniciar música automaticamente
+            let isPlaying = true;
+            
+            // Tentar tocar a música automaticamente
+            const playMusic = () => {
+                music.play().then(() => {
+                    musicIcon.textContent = '♫';
+                }).catch(e => {
+                    console.log("Reprodução automática bloqueada. Clique para tocar música.");
+                    isPlaying = false;
+                    musicIcon.textContent = '♪';
+                });
+            };
+            
+            // Tentar tocar após um pequeno atraso para melhor compatibilidade
+            setTimeout(playMusic, 500);
+            
+            musicControl.addEventListener('click', () => {
+                if (isPlaying) {
+                    music.pause();
+                    musicIcon.textContent = '♪';
+                } else {
+                    music.play();
+                    musicIcon.textContent = '♫';
+                }
+                isPlaying = !isPlaying;
+            });
+        }
+
+        // Momentos especiais
+        const moments = [
+            {
+                title: "Nosso momento de Fritz e Frida",
+                description: "Esse dia não saiu como o planejado, mas foi um dos melhores momento com você.",
+                images: ["Fotos/foto7.jpeg"]
+            },
+            {
+                title: "Foto preferida",
+                description: "Nesse dia na minha opinião tiramos a nossa melhor foto.",
+                images: ["Fotos/foto12.jpeg"]
+            },
+            {
+                title: "Sou tremendamente apaixonado pelo seu sorriso",
+                description: "Seu sorriso é uma das várias coisas que eu me fasciono em você.",
+                images: ["Fotos/foto4.jpeg"]
+            },
+            {
+                title: "Aquela Viagem Inesquecível",
+                description: "Explorando novos lugares juntos, criando memórias que guardarei para sempre. Sua companhia transforma qualquer lugar em um paraíso.",
+                images: ["Fotos/foto13.jpeg"]
+            },
+            {
+                title: "Dias Comuns, Momentos Extraordinários",
+                description: "Os momentos simples são os mais especiais quando estou com você. Um café, um abraço, uma conversa... tudo se torna mágico ao seu lado.",
+                images: ["Fotos/foto11.jpeg"]
+            },
+            {
+                title: "Nosso Futuro Juntos",
+                description: "Sonhando com tudo que ainda vamos viver. Cada plano, cada sonho, cada promessa... tudo ganha sentido quando penso em nosso futuro lado a lado.",
+                images: ["Fotos/foto6.jpeg"]
+            }
+        ];
+
+        function createMoments() {
+            const momentsGrid = document.getElementById('momentsGrid');
+            
+            moments.forEach((moment, index) => {
+                const momentCard = document.createElement('div');
+                momentCard.classList.add('moment-card');
+                momentCard.setAttribute('data-index', index);
+                
+                // Se tiver apenas uma imagem, mostrar imagem simples
+                if (moment.images.length === 1) {
+                    momentCard.innerHTML = `
+                        <div class="moment-image-container">
+                            <img src="${moment.images[0]}" alt="${moment.title}" class="moment-image">
+                        </div>
+                        <div class="moment-content">
+                            <h3 class="moment-title">${moment.title}</h3>
+                            <p class="moment-description">${moment.description}</p>
+                        </div>
+                    `;
+                } else {
+                    // Se tiver múltiplas imagens, mostrar carrossel
+                    momentCard.innerHTML = `
+                        <div class="moment-carousel">
+                            <div class="moment-carousel-track" id="momentCarouselTrack${index}">
+                                ${moment.images.map(img => `
+                                    <div class="moment-carousel-item">
+                                        <img src="${img}" alt="${moment.title}">
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="moment-carousel-indicators" id="momentIndicators${index}">
+                                ${moment.images.map((_, i) => `
+                                    <div class="moment-indicator ${i === 0 ? 'active' : ''}" data-index="${i}"></div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="moment-content">
+                            <h3 class="moment-title">${moment.title}</h3>
+                            <p class="moment-description">${moment.description}</p>
+                        </div>
+                    `;
+                    
+                    // Configurar carrossel para este momento
+                    setupMomentCarousel(index, moment.images.length);
+                }
+                
+                momentCard.addEventListener('click', () => {
+                    openModal(index);
+                });
+                
+                momentsGrid.appendChild(momentCard);
+            });
+        }
+
+        // Configurar carrossel para momentos com múltiplas fotos
+        function setupMomentCarousel(momentIndex, imageCount) {
+            if (imageCount <= 1) return;
+            
+            const track = document.getElementById(`momentCarouselTrack${momentIndex}`);
+            const indicators = document.getElementById(`momentIndicators${momentIndex}`).children;
+            let currentImgIndex = 0;
+            
+            // Auto-avançar as imagens
+            setInterval(() => {
+                currentImgIndex = (currentImgIndex + 1) % imageCount;
+                track.style.transform = `translateX(-${currentImgIndex * 100}%)`;
+                
+                // Atualizar indicadores
+                Array.from(indicators).forEach((indicator, index) => {
+                    if (index === currentImgIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }, 4000);
+            
+            // Configurar clique nos indicadores
+            Array.from(indicators).forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentImgIndex = index;
+                    track.style.transform = `translateX(-${currentImgIndex * 100}%)`;
+                    
+                    // Atualizar indicadores
+                    Array.from(indicators).forEach((ind, i) => {
+                        if (i === currentImgIndex) {
+                            ind.classList.add('active');
+                        } else {
+                            ind.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        }
+
+        // Modal para momentos especiais
+        let modalCurrentIndex = 0;
+        let modalImages = [];
+
+        function openModal(index) {
+            const modal = document.getElementById('momentModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalCarouselTrack = document.getElementById('modalCarouselTrack');
+            const modalIndicators = document.getElementById('modalIndicators');
+            
+            // Limpar conteúdo anterior
+            modalCarouselTrack.innerHTML = '';
+            modalIndicators.innerHTML = '';
+            
+            // Definir conteúdo
+            modalTitle.textContent = moments[index].title;
+            modalDescription.textContent = moments[index].description;
+            modalImages = moments[index].images;
+            modalCurrentIndex = 0;
+            
+            // Adicionar imagens ao carrossel do modal
+            modalImages.forEach((img, i) => {
+                const carouselItem = document.createElement('div');
+                carouselItem.classList.add('modal-carousel-item');
+                carouselItem.innerHTML = `<img src="${img}" alt="${moments[index].title}">`;
+                modalCarouselTrack.appendChild(carouselItem);
+                
+                const indicator = document.createElement('div');
+                indicator.classList.add('modal-indicator');
+                if (i === 0) indicator.classList.add('active');
+                indicator.setAttribute('data-index', i);
+                indicator.addEventListener('click', () => {
+                    modalCurrentIndex = i;
+                    updateModalCarousel();
+                });
+                modalIndicators.appendChild(indicator);
+            });
+            
+            // Atualizar carrossel
+            updateModalCarousel();
+            
+            // Mostrar modal
+            modal.style.display = 'flex';
+        }
+
+        function updateModalCarousel() {
+            const modalCarouselTrack = document.getElementById('modalCarouselTrack');
+            const modalIndicators = document.getElementById('modalIndicators').children;
+            
+            modalCarouselTrack.style.transform = `translateX(-${modalCurrentIndex * 100}%)`;
+            
+            // Atualizar indicadores
+            Array.from(modalIndicators).forEach((indicator, index) => {
+                if (index === modalCurrentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('momentModal');
+            modal.style.display = 'none';
+        }
+
+        // Botão de amor secreto
+        function setupLoveButton() {
+            const loveButton = document.getElementById('loveButton');
+            let clickCount = 0;
+            
+            loveButton.addEventListener('click', () => {
+                clickCount++;
+                
+                if (clickCount === 1) {
+                    loveButton.textContent = "Você é a pessoa mais especial da minha vida 💕";
+                } else if (clickCount === 2) {
+                    loveButton.textContent = "Cada dia ao seu lado é um presente 🎁";
+                } else if (clickCount === 3) {
+                    loveButton.textContent = "Te amo mais do que palavras podem expressar 💖";
+                } else {
+                    loveButton.textContent = "Obrigado por ser você! 💝";
+                    clickCount = 0;
+                }
+                
+                // Criar corações extras
+                for (let i = 0; i < 5; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '💖';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                    heart.style.animationDelay = '0s';
+                    document.getElementById('hearts').appendChild(heart);
+                    
+                    // Remover após a animação
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 8000);
+                }
+            });
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            createHearts();
+            createIndicators();
+            setupMusicControl();
+            createMoments();
+            setupLoveButton();
+            
+            setInterval(updateTimer, 1000);
+            updateTimer();
+            
+            setInterval(moveCarousel, 5000); // muda a cada 5 segundos
+            
+            // Fechar modal
+            document.getElementById('closeModal').addEventListener('click', closeModal);
+            
+            // Fechar modal clicando fora
+            document.getElementById('momentModal').addEventListener('click', (e) => {
+                if (e.target.id === 'momentModal') {
+                    closeModal();
+                }
+            });
+            
+            // Navegação do carrossel no modal
+            document.getElementById('modalPrev').addEventListener('click', () => {
+                modalCurrentIndex = (modalCurrentIndex - 1 + modalImages.length) % modalImages.length;
+                updateModalCarousel();
+            });
+            
+            document.getElementById('modalNext').addEventListener('click', () => {
+                modalCurrentIndex = (modalCurrentIndex + 1) % modalImages.length;
+                updateModalCarousel();
+            });
+        });
+    </script>
+</body>
+</html>
